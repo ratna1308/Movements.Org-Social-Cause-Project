@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>HRA: An Image Database for Human Rights Violations Recognition</title>
+
+      <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='style.css') }}">
+
+
+
+</head>
+
+<body>
+
+
+		<h1>Human Rights Violations Recognition Demo using <span>Convolutional Neural Networks</span></h1>
+        <<div id="debug">
+
+
+            <div id="text">
+                <p>This demo identifies if the image depicts a human right violation, and suggests the
+                    top-3 human rights violations classes representing the image. We use the Keras
+                    high-level neural networks API and our fine-tuned Human-Rights-Archive-CNNs.
+                    Please note that we are limited to the 8 classes (<i>arms, child labour, child marriage, detention centres,
+                    disability rights, displaced populations, environment </i> and <i> out of school</i>)
+                    of Human Rights Archive (HRA) dataset &#38; an extra class of <i> &#8216;no violation&#8217;</i> which is
+                    currently being used for this demo.
+                    Keep in mind that this is image classification and not object detection,
+                    so the network is forced to output a single class through softmax.
+                    Best results are on images where the classification target spans a large portion of the image.</p>
+                    <br><p id="instructions">	&#10035; Choose your image (png or jpg/jpeg)  and press &lsquo;Run&rsquo;. After the predictions are shown, if
+                    you want to test a differernt image, press the &lsquo;Start Over&rsquo; button to restart the procedure. (Smartphones supported too)!</p>
+
+            </div>
+
+            <div id="funcionality">
+
+
+                <form>
+                    <input type="button" title="restart the procedure" value="Start Over" class="myButton" id="star_over" onclick="window.location.href='http://83.212.117.19:5000/'" />
+                </form>
+
+
+
+
+
+
+                <b id="upload_image">Upload Image:</b>
+
+
+
+
+
+                    <form id="submit_form" method=POST enctype=multipart/form-data>
+                        <input type=file name=photo id="myFile">
+
+                        <input type="submit" value="Run" class="run_cnn" onclick="myFunction()" >
+
+
+
+
+                        <img id="spinner" src="/static/loader5.gif" style="display: none"><br/>
+                        <b id="computing_text" style="display: none"> Computing...</b>
+
+
+
+                        <img id="selected_img" src={{image}}><br>
+                        <p id="predictions1">{{final_predictions_pt2}}</p>
+                        <p id="predictions2">{{final_predictions_pt1}} </p>
+
+                    </form>
+
+
+            </div>
+
+        </div>
+
+
+<script>
+function myFunction() {
+
+    document.getElementById("spinner").style.display='block'
+
+    document.getElementById("computing_text").style.display='block'
+
+
+}
+
+
+</script>
+
+
+
+</body>
+</html>
