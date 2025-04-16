@@ -149,6 +149,3 @@ Please cite the following [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp
 }
 
 ```
-
-
-Please email [Grigorios Kalliatakis](mailto:gkallia@essex.ac.uk) if you have any questions or comments.
